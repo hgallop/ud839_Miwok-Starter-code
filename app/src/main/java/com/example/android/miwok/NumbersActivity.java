@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -23,6 +24,15 @@ public class NumbersActivity extends AppCompatActivity {
         numbers[9] = "ten";
         //alternate array declaration
         //String [] numbers2 = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-
+        Log.v("numbers[0] = ", "one");
+        Log.v("numbers[1] = ", "two");
+        Log.v("numbers[2] = ", "three");
+        Log.v("numbers[3] = ", "four");
+        Log.v("numbers[4] = ", "five");
+        Log.v("numbers[5] = ", "six");
+        Log.v("numbers[6] = ", "seven");
+        Log.v("numbers[7] =", "eight");
+        Log.v("numbers[8] =", "nine");
+        Log.v("numbers[9] =", "ten");
     }
 }
