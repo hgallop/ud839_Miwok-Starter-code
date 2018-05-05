@@ -30,18 +30,15 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("ten");
         //finds the linear layout in the view hierarchy
         LinearLayout rootView = findViewById(R.id.rootView);
-        //index variable to iterate through array list
-        int index = 0;
         //loop over the array list printing each item to a new text view
-        while(index < words.size()) {
+        for( int index =0; index < words.size(); index++) {
             //creates a new text view
             TextView wordView = new TextView(this);
-            //sets text of the text view to the contents of the array list at index 0
+            //sets text of the text view to the contents of the array list at index
             wordView.setText(words.get(index));
             //adds text view to the linear layout
             rootView.addView(wordView);
             //increment index
-            index++;
         }
     }
 }
