@@ -15,39 +15,58 @@
  */
 package com.example.android.miwok;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-    }
 
-    public void openNumbersList(View view) {
-        Intent number = new Intent(this, NumbersActivity.class);
-        startActivity(number);
-    }
+        //find category views in the hierarchy
+        TextView numbers = findViewById(R.id.numbers);
+        TextView familyMembers = findViewById(R.id.family);
+        TextView colors = findViewById(R.id.colors);
+        TextView phrases = findViewById(R.id.phrases);
 
-    public void openFamilyList(View view) {
-        Intent family = new Intent(this, FamilyMembersActivity.class);
-        startActivity(family);
-    }
+        //set a custom listener to each view that launches the appropriate activity when user clicks.
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent number = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(number);
+            }
+        });
 
-    public void openColorsList(View view) {
-        Intent color = new Intent(this, ColorsActivity.class);
-        startActivity(color);
-    }
+        familyMembers.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent family = new Intent(MainActivity.this, FamilyMembersActivity.class);
+                startActivity(family);
+            }
+        });
 
-    public void openPhrasesList(View view) {
-        Intent phrase = new Intent(this, PhrasesActivity.class);
-        startActivity(phrase);
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent color = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(color);
+            }
+        });
+
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phrase = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrase);
+            }
+        });
+
     }
 }
