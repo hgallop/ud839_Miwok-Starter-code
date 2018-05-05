@@ -20,7 +20,7 @@ public class NumbersActivity extends AppCompatActivity {
         numbers[6] = "seven";
         numbers[7] = "eight";
         numbers[8] = "nine";
-        numbers[10] = "ten";
+        numbers[9] = "ten";
         //alternate array declaration
         //String [] numbers2 = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
 
