@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class NumbersActivity extends AppCompatActivity {
 
     @Override
@@ -11,28 +13,29 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        String [] numbers = new String[10];
-        numbers[0] = "one";
-        numbers[1] = "two";
-        numbers[2] = "three";
-        numbers[3] = "four";
-        numbers[4] = "five";
-        numbers[5] = "six";
-        numbers[6] = "seven";
-        numbers[7] = "eight";
-        numbers[8] = "nine";
-        numbers[9] = "ten";
-        //alternate array declaration
-        //String [] numbers2 = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-        Log.v("numbers[0] = ", "one");
-        Log.v("numbers[1] = ", "two");
-        Log.v("numbers[2] = ", "three");
-        Log.v("numbers[3] = ", "four");
-        Log.v("numbers[4] = ", "five");
-        Log.v("numbers[5] = ", "six");
-        Log.v("numbers[6] = ", "seven");
-        Log.v("numbers[7] = ", "eight");
-        Log.v("numbers[8] = ", "nine");
-        Log.v("numbers[9] = ", "ten");
+        //create new arry list object
+        ArrayList<String> words = new ArrayList<>();
+        //add english words to array list
+        words.add("one");
+        words.add("two");
+        words.add("three");
+        words.add("four");
+        words.add("five");
+        words.add("six");
+        words.add("seven");
+        words.add("eight");
+        words.add("nine");
+        words.add("ten");
+        //log array list contents
+        Log.v("words 0", words.get(0) + "");
+        Log.v("words 1", words.get(1) + "");
+        Log.v("words 2", words.get(2) + "");
+        Log.v("words 3", words.get(3) + "");
+        Log.v("words 4", words.get(4) + "");
+        Log.v("words 5", words.get(5) + "");
+        Log.v("words 6", words.get(6)+ "");
+        Log.v("words 7", words.get(7) + "");
+        Log.v("words 8", words.get(8) + "");
+        Log.v("words 9", words.get(9) + "");
     }
 }
