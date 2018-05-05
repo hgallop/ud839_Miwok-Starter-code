@@ -31,8 +31,8 @@ public class NumbersActivity extends AppCompatActivity {
         Log.v("numbers[4] = ", "five");
         Log.v("numbers[5] = ", "six");
         Log.v("numbers[6] = ", "seven");
-        Log.v("numbers[7] =", "eight");
-        Log.v("numbers[8] =", "nine");
-        Log.v("numbers[9] =", "ten");
+        Log.v("numbers[7] = ", "eight");
+        Log.v("numbers[8] = ", "nine");
+        Log.v("numbers[9] = ", "ten");
     }
 }
