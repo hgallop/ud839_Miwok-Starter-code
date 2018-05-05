@@ -30,23 +30,18 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("ten");
         //finds the linear layout in the view hierarchy
         LinearLayout rootView = findViewById(R.id.rootView);
-        //creates a new text view
-        TextView wordView = new TextView(this);
-        //sets text of the text view to the contents of the array list at index 0
-        wordView.setText(words.get(0));
-        //adds text view to the linear layout
-        rootView.addView(wordView);
-        //creates a new text view
-        TextView wordView2 = new TextView(this);
-        //sets text of the text view to the contents of the array list at index 1
-        wordView2.setText(words.get(1));
-        //adds text view to the linear layout
-        rootView.addView(wordView2);
-        //creates a new text view
-        TextView wordView3 = new TextView(this);
-        //sets text of the text view to the contents of the array list at index 2
-        wordView3.setText(words.get(2));
-        //adds text view to the linear layout
-        rootView.addView(wordView3);
+        //index variable to iterate through array list
+        int index = 0;
+        //loop over the array list printing each item to a new text view
+        while(index < words.size()) {
+            //creates a new text view
+            TextView wordView = new TextView(this);
+            //sets text of the text view to the contents of the array list at index 0
+            wordView.setText(words.get(index));
+            //adds text view to the linear layout
+            rootView.addView(wordView);
+            //increment index
+            index++;
+        }
     }
 }
