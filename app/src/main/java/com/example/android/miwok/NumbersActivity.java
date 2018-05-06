@@ -29,7 +29,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
         //finds the list view in the view hierarchy
-        GridView rootView = findViewById(R.id.gridview);
+        ListView rootView = findViewById(R.id.list);
         //creates an array adapter object to iterate through the array list and set each item to a built in layout holding a text view
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
         //set the array adapter object to the list view
