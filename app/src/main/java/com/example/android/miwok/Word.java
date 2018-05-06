@@ -9,7 +9,7 @@ public class Word {
     private String mDefaultTranslation;
 
     //constructor for the object
-    Word(String miwok, String def) {
+    Word(String def, String miwok) {
         mMiwokTranslation = miwok;
         mDefaultTranslation = def;
     }

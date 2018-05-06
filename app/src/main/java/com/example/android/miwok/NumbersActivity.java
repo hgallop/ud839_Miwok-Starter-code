@@ -16,22 +16,22 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //create new array list object
-        ArrayList<String> words = new ArrayList<>();
+        ArrayList<Word> words = new ArrayList<>();
         //add english words to array list
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two","otiiko"));
+        words.add(new Word("three","tolookosu"));
+        words.add(new Word("four","oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo'e"));
+        words.add(new Word("ten", "na'aacha"));
         //finds the list view in the view hierarchy
         ListView rootView = findViewById(R.id.list);
         //creates an array adapter object to iterate through the array list and set each item to a built in layout holding a text view
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, R.layout.list_item, words);
+        ArrayAdapter<Word> itemsAdapter = new ArrayAdapter<>(this, R.layout.list_item, words);
         //set the array adapter object to the list view
         rootView.setAdapter(itemsAdapter);
 
