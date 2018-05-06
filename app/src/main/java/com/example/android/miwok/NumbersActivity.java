@@ -2,11 +2,10 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
+import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -16,7 +15,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        //create new arry list object
+        //create new array list object
         ArrayList<String> words = new ArrayList<>();
         //add english words to array list
         words.add("one");
@@ -30,9 +29,9 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
         //finds the list view in the view hierarchy
-        ListView rootView = findViewById(R.id.list);
+        GridView rootView = findViewById(R.id.gridview);
         //creates an array adapter object to iterate through the array list and set each item to a built in layout holding a text view
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
         //set the array adapter object to the list view
         rootView.setAdapter(itemsAdapter);
 
