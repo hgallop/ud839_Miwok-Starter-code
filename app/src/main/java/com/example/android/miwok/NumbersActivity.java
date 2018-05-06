@@ -2,9 +2,6 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -13,11 +10,11 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         //create new array list object
         ArrayList<Word> words = new ArrayList<>();
-        //add english words to array list
+        //add word objects to array list
         words.add(new Word("one", "lutti"));
         words.add(new Word("two","otiiko"));
         words.add(new Word("three","tolookosu"));
