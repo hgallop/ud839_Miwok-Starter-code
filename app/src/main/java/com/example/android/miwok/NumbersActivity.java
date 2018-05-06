@@ -30,10 +30,10 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("ten", "na'aacha"));
         //finds the list view in the view hierarchy
         ListView rootView = findViewById(R.id.list);
-        //creates an array adapter object to iterate through the array list and set each item to a built in layout holding a text view
-        ArrayAdapter<Word> itemsAdapter = new ArrayAdapter<>(this, R.layout.list_item, words);
-        //set the array adapter object to the list view
-        rootView.setAdapter(itemsAdapter);
+        //creates an word adapter object to iterate through the array list and set each item to a layout holding two text views
+        WordAdapter wordAdapter = new WordAdapter(this, words);
+        //set the word adapter object to the list view
+        rootView.setAdapter(wordAdapter);
 
     }
 }
