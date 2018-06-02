@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,12 +30,27 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
         //create variable to hold the current word at the specified position in the array list
         Word currentWord = getItem(position);
+
+        //find image view in the layout
+        ImageView itemImage = listItemView.findViewById(R.id.item_image);
+        //check if current word object has an image int
+        if(currentWord != null && currentWord.hasImage()) {
+            //set image to image view
+            itemImage.setImageResource(currentWord.getListImage());
+        } else {
+            //set image view visibility to gone
+            itemImage.setVisibility(View.GONE);
+        }
+
         //find text views in the layout
         TextView miwokText = listItemView.findViewById(R.id.miwok_text_view);
         TextView defaultText = listItemView.findViewById(R.id.default_text_view);
+
         //set text of each text view to the correct word translation
-        miwokText.setText(currentWord.getMiwokTranslation());
-        defaultText.setText(currentWord.getDefaultTranslation());
+        if(currentWord != null) {
+            miwokText.setText(currentWord.getMiwokTranslation());
+            defaultText.setText(currentWord.getDefaultTranslation());
+        }
         //return the view
         return listItemView;
     }

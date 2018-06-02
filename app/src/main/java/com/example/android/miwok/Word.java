@@ -4,10 +4,12 @@ package com.example.android.miwok;
 
 public class Word {
 
+    private static final int NO_IMAGE_PROVIDED = -1;
+
     //variables for miwok and default words
     private String mMiwokTranslation;
     private String mDefaultTranslation;
-    private int mListImage;
+    private int mListImage = NO_IMAGE_PROVIDED;
 
     //constructor for the object
     Word(String def, String miwok) {
@@ -34,5 +36,9 @@ public class Word {
 
     public int getListImage() {
         return mListImage;
+    }
+
+    public boolean hasImage() {
+        return mListImage != NO_IMAGE_PROVIDED;
     }
 }
