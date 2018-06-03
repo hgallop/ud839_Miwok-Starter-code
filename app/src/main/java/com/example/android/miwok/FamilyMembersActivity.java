@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
         //finds the list view in the view hierarchy
         ListView rootView = findViewById(R.id.list);
         //creates an word adapter object to iterate through the array list and set each item to a layout holding two text views
-        WordAdapter wordAdapter = new WordAdapter(this, words);
+        WordAdapter wordAdapter = new WordAdapter(this, words, R.color.category_family);
         //set the word adapter object to the list view
         rootView.setAdapter(wordAdapter);
     }

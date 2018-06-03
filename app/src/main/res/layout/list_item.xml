@@ -2,30 +2,50 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activity_vertical_margin"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/list_item_height"
+    android:background="@color/tan_background"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/item_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"
         android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
         tools:src="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:id="@+id/words"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_toRightOf="@id/item_image"
+        android:layout_toEndOf="@id/item_image"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        tools:background="@color/category_numbers">
 
     <TextView
         android:id="@+id/miwok_text_view"
+        style="@style/ListItem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/item_image"
-        tools:text="miwok"/>
+        android:layout_height="@dimen/none"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        tools:text="miwok"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/default_text_view"
+        style="@style/ListItem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/item_image"
-        android:layout_below="@id/miwok_text_view"
-        tools:text="default"/>
+        android:layout_height="@dimen/none"
+        android:layout_weight="1"
+        android:gravity="top"
+        tools:text="default"
+        />
+
+    </LinearLayout>
 
 </RelativeLayout>

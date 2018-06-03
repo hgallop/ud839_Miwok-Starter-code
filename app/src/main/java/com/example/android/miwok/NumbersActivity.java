@@ -28,7 +28,7 @@ public class NumbersActivity extends AppCompatActivity {
         //finds the list view in the view hierarchy
         ListView rootView = findViewById(R.id.list);
         //creates an word adapter object to iterate through the array list and set each item to a layout holding two text views
-        WordAdapter wordAdapter = new WordAdapter(this, words);
+        WordAdapter wordAdapter = new WordAdapter(this, words, R.color.category_numbers);
         //set the word adapter object to the list view
         rootView.setAdapter(wordAdapter);
 

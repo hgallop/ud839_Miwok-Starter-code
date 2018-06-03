@@ -8,14 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    WordAdapter(Activity context, ArrayList<Word> words) {
+    private int mBackgroundColor;
+
+    WordAdapter(Activity context, ArrayList<Word> words, int color) {
         super(context, 0, words);
+        mBackgroundColor = color;
     }
 
     @NonNull
@@ -41,6 +45,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
             //set image view visibility to gone
             itemImage.setVisibility(View.GONE);
         }
+
+        //find text layout
+        LinearLayout wordItem = listItemView.findViewById(R.id.words);
+        wordItem.setBackgroundResource(mBackgroundColor);
 
         //find text views in the layout
         TextView miwokText = listItemView.findViewById(R.id.miwok_text_view);
