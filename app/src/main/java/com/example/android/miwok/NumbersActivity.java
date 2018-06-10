@@ -10,6 +10,15 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    MediaPlayer wordPlayer;
+
+    private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +47,25 @@ public class NumbersActivity extends AppCompatActivity {
         rootView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MediaPlayer wordPlayer = MediaPlayer.create(NumbersActivity.this, words.get(position).getAudio());
+                releaseMediaPlayer();
+                wordPlayer = MediaPlayer.create(NumbersActivity.this, words.get(position).getAudio());
                 wordPlayer.start();
+
+                wordPlayer.setOnCompletionListener(completionListener);
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    private void releaseMediaPlayer() {
+        if(wordPlayer != null) {
+            wordPlayer.release();
+            wordPlayer = null;
+        }
     }
 }
