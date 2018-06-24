@@ -1,5 +1,7 @@
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,30 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
     MediaPlayer wordPlayer;
 
+    AudioManager audioManager;
+
+    private AudioManager.OnAudioFocusChangeListener focusChange = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            switch(focusChange) {
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                    wordPlayer.stop();
+                    wordPlayer.seekTo(0);
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS:
+                    releaseMediaPlayer();
+                    break;
+                case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                    wordPlayer.stop();
+                    wordPlayer.seekTo(0);
+                    break;
+                case AudioManager.AUDIOFOCUS_GAIN:
+                    wordPlayer.start();
+                    break;
+            }
+        }
+    };
+
     private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -24,6 +50,11 @@ public class FamilyMembersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
+        audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+
+        assert audioManager != null;
+        final int result = audioManager.requestAudioFocus(focusChange, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
         //create new array list object
         final ArrayList<Word> words = new ArrayList<>();
@@ -50,10 +81,12 @@ public class FamilyMembersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 releaseMediaPlayer();
-                wordPlayer = MediaPlayer.create(FamilyMembersActivity.this, words.get(position).getAudio());
-                wordPlayer.start();
 
-                wordPlayer.setOnCompletionListener(completionListener);
+                if (audioManager != null && result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    wordPlayer = MediaPlayer.create(FamilyMembersActivity.this, words.get(position).getAudio());
+                    wordPlayer.start();
+                    wordPlayer.setOnCompletionListener(completionListener);
+                }
             }
         });
     }
@@ -68,6 +101,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
         if(wordPlayer != null) {
             wordPlayer.release();
             wordPlayer = null;
+            audioManager.abandonAudioFocus(focusChange);
         }
     }
 }
