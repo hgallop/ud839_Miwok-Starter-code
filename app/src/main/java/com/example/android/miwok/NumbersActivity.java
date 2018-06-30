@@ -21,8 +21,10 @@ public class NumbersActivity extends AppCompatActivity {
         public void onAudioFocusChange(int focusChange) {
             switch(focusChange) {
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
-                    wordPlayer.stop();
-                    wordPlayer.seekTo(0);
+                    if(wordPlayer != null) {
+                        wordPlayer.stop();
+                        wordPlayer.seekTo(0);
+                    }
                     break;
                 case AudioManager.AUDIOFOCUS_LOSS:
                     releaseMediaPlayer();
@@ -32,7 +34,9 @@ public class NumbersActivity extends AppCompatActivity {
                     wordPlayer.seekTo(0);
                     break;
                 case AudioManager.AUDIOFOCUS_GAIN:
-                    wordPlayer.start();
+                    if(wordPlayer != null) {
+                        wordPlayer.start();
+                    }
                     break;
             }
         }

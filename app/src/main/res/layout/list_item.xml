@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:contentDescription="@string/icon"
         android:id="@+id/item_image"
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
@@ -23,6 +24,7 @@
         android:layout_toRightOf="@id/item_image"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
         tools:background="@color/category_numbers">
 
         <TextView
@@ -48,11 +50,14 @@
     </LinearLayout>
 
     <ImageView
+        android:contentDescription="@string/play_icon"
         android:layout_width="@dimen/icon"
         android:layout_height="@dimen/icon"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:src="@drawable/ic_play_arrow" />
 
 </RelativeLayout>
