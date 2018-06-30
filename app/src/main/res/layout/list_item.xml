@@ -1,51 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="@dimen/list_item_height"
     android:background="@color/tan_background"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:minHeight="@dimen/list_item_height"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
-        tools:src="@mipmap/ic_launcher"/>
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        tools:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:id="@+id/words"
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
-        android:layout_toRightOf="@id/item_image"
         android:layout_toEndOf="@id/item_image"
+        android:layout_toRightOf="@id/item_image"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         tools:background="@color/category_numbers">
 
-    <TextView
-        android:id="@+id/miwok_text_view"
-        style="@style/ListItem"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/none"
-        android:layout_weight="1"
-        android:gravity="bottom"
-        tools:text="miwok"
-        android:textSize="@dimen/text_size"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/miwok_text_view"
+            style="@style/ListItem"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/none"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold"
+            tools:text="miwok" />
 
-    <TextView
-        android:id="@+id/default_text_view"
-        style="@style/ListItem"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/none"
-        android:layout_weight="1"
-        android:gravity="top"
-        tools:text="default"
-        />
+        <TextView
+            android:id="@+id/default_text_view"
+            style="@style/ListItem"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/none"
+            android:layout_weight="1"
+            android:gravity="top"
+            tools:text="default" />
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/icon"
+        android:layout_height="@dimen/icon"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:src="@drawable/ic_play_arrow" />
 
 </RelativeLayout>

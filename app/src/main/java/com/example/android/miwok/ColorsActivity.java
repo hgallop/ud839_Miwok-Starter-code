@@ -17,7 +17,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     AudioManager audioManager;
 
-    private AudioManager.OnAudioFocusChangeListener focusChange = new AudioManager.OnAudioFocusChangeListener() {
+    private AudioManager.OnAudioFocusChangeListener focusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
             switch(focusChange) {
@@ -54,7 +54,7 @@ public class ColorsActivity extends AppCompatActivity {
         audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
 
         assert audioManager != null;
-        final int result = audioManager.requestAudioFocus(focusChange, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+        final int result = audioManager.requestAudioFocus(focusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
         //create new array list object
         final ArrayList<Word> words = new ArrayList<>();
@@ -99,7 +99,7 @@ public class ColorsActivity extends AppCompatActivity {
         if(wordPlayer != null) {
             wordPlayer.release();
             wordPlayer = null;
-            audioManager.abandonAudioFocus(focusChange);
+            audioManager.abandonAudioFocus(focusChangeListener);
         }
     }
 }
