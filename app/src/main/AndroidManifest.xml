@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.miwok">
 
     <application
@@ -29,10 +30,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NumbersActivity" android:label="@string/category_numbers"/>
-        <activity android:name=".ColorsActivity" android:label="@string/category_colors"/>
-        <activity android:name=".PhrasesActivity" android:label="@string/category_phrases"/>
-        <activity android:name=".FamilyMembersActivity" android:label="@string/category_family"/>
+        <activity android:name=".NumbersActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/category_numbers"
+            tools:targetApi="jelly_bean"/>
+        <activity
+            android:name=".ColorsActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/category_colors"
+            tools:targetApi="jelly_bean"/>
+        <activity
+            android:name=".PhrasesActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/category_phrases"
+            tools:targetApi="jelly_bean"/>
+        <activity
+            android:name=".FamilyMembersActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/category_family"
+            tools:targetApi="jelly_bean"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
     </application>
 
 </manifest>
