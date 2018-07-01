@@ -30,25 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NumbersActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/category_numbers"
-            tools:targetApi="jelly_bean"/>
-        <activity
-            android:name=".ColorsActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/category_colors"
-            tools:targetApi="jelly_bean"/>
-        <activity
-            android:name=".PhrasesActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/category_phrases"
-            tools:targetApi="jelly_bean"/>
-        <activity
-            android:name=".FamilyMembersActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/category_family"
-            tools:targetApi="jelly_bean"/>
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
